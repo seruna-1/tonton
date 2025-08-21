@@ -16,4 +16,17 @@
 
 		<li><p>Hall da fama.</p></li>
 	</ul>
+
+	<p>Exemplo:</p>
+
+	<div>
+		<%= md_text = File.read(@md_path) %>
+	</div>
+
+	<p>Versão html:</p>
+
+	<div>
+		<%= Kramdown::Document.new(md_text).to_html %>
+	</div>
+
 </section>
