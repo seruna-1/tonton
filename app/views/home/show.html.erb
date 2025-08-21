@@ -3,30 +3,15 @@
 
 	<nav>
 		<%= link_to "Grupo", group_path %>
+		<% if authenticated? %>
+			<%= link_to "Gerenciamento de repositório", repository_path %>
+			<%= button_to "Sair", session_path, method: :delete %>
+		<% else %>
+			<%= link_to "Entrar", session_path + "/new", method: :get %>
+		<% end %>
 	</nav>
 
-	<p>TonTon é um servidor para grupo de estudos</p>
-
-	<p>Funcionalidades</p>
-
-	<ul>
-		<li><p>Anotações (markdown) conjuntas em git.</p></li>
-
-		<li><p>Anotações pessoais.</p></li>
-
-		<li><p>Hall da fama.</p></li>
-	</ul>
-
-	<p>Exemplo:</p>
-
-	<div>
-		<%= md_text = File.read(@md_path) %>
-	</div>
-
-	<p>Versão html:</p>
-
-	<div>
-		<%= Kramdown::Document.new(md_text).to_html %>
-	</div>
-
+	<%=
+		render inline: Kramdown::Document.new(File.read(Rails.root + "README.md")).to_html
+	%>
 </section>

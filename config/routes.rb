@@ -3,7 +3,15 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
 	get "up" => "rails/health#show", as: :rails_health_check
 
-	get "/", to: "home#show"
+	root "home#show"
 
-	get "/group", to: "group#show"
+	get "/group", to: "group#show_main_staff"
+
+	get "/group/:username", to: "group#show_person"
+
+	get "/repository", to: "repository#show"
+
+	#get "/colaboration", to: "colaboration#index"
+
+	#get "/colaboration/:material_name", to: "colaboration#show_material"
 end
