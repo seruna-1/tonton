@@ -2,12 +2,15 @@
 	<h1>TonTon</h1>
 
 	<nav>
-		<%= link_to "Grupo", group_path %>
+		<p><%= link_to "Grupo", group_path %></p>
+
+		<p><%= link_to "Navegar", colab_path %></p>
+
 		<% if authenticated? %>
-			<%= link_to "Gerenciamento de repositório", repository_path %>
+			<p><%= link_to "Gerenciamento de repositório", repository_path %></p>
 			<%= button_to "Sair", session_path, method: :delete %>
 		<% else %>
-			<%= link_to "Entrar", session_path + "/new", method: :get %>
+			<p><%= link_to "Entrar", session_path + "/new", method: :get %></p>
 		<% end %>
 	</nav>
 

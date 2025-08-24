@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
 	delete "/repository", to: "repository#remove"
 
-	#get "/colaboration", to: "colaboration#index"
+	get "/colab/", to: "notes#show"
 
-	#get "/colaboration/:material_name", to: "colaboration#show_material"
+	get "/colab/*", to: "notes#show"
 end
