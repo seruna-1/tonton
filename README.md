@@ -10,9 +10,27 @@ Funcionalidades:
 
  - Páginas páginas para projetos.
 
-# Descentralização
+# Building
 
-TonTon é um ponto de gerência e acesso. Como medida para garantir disponibilidade dos materiais educacionais e autorais, as anotações são importadas de repositórios em um serviço de hosting.
+Clone o repositório:
+
+	git clone "https://github.com/seruna-1/tonton.git"
+
+	cd tonton
+
+Instale ruby e bundler com o seu gerenciador de pacotes. Exemplo:
+
+	pacman -S ruby ruby-bundler
+
+Instale as gems:
+
+	bundle install
+
+E inicie o servidor:
+
+	bundle exec rails server
+
+O servidor estará acessível em [http://[::1]:3000] ou [http://localhost:3000].
 
 # Repositório de anotações
 
