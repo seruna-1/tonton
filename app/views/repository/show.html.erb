@@ -1,5 +1,7 @@
 <section>
 	<h1>Repositório</h1>
 
-	<p>Data da última atualização: ?.</p>
+	<%= button_to "Atualizar", repository_path, method: :post %>
+
+	<%= button_to "Remover", repository_path, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
 </section>

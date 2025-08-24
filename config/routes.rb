@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
 	get "/repository", to: "repository#show"
 
+	post "/repository", to: "repository#update"
+
+	delete "/repository", to: "repository#remove"
+
 	#get "/colaboration", to: "colaboration#index"
 
 	#get "/colaboration/:material_name", to: "colaboration#show_material"
