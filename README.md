@@ -94,20 +94,44 @@ E inicie o servidor:
 
 O servidor estará acessível em [http://[::1]:3000] ou [http://localhost:3000].
 
-# Repositório de anotações
+# Repositório de material
 
-Repositórios de anotações são criados (clonados), removidos e atualizados por um administrador, na central de adimnistração de repositório [/repositories].
+O repositório de material contém o conteúdo colaborativo construído pela comunidade que é exibido no site.
 
 Estrutura exemplo de um repositório de anotações:
 
-	collaboration/
+	colab/
 
 		programming/
 
 			ruby/
 
-				message.md
+				hello-world.md
 
-				about.json
+				hello-world.png
 
-				icon.png
+				hello-world.toml
+
+Os arquivos Markdown contém uma escrita sobre determinado tópico. É possível acessar um arquivo Markdown no site adicionando o mesmo caminho em que ele se encontra no repositório à url do site. Por exemplo:
+
+	https://localhost:3000/colab/programming/ruby/hello-world.md
+
+Exibirá o conteúdo do arquivo Markdown presente no repositório, convertido para HTML, junto ao estilo, scripts e dados compilados sobre contribuintes.
+
+Pra cada arquivo Markdown, pode existir um arquivo de configuração TOML que esteja no mesmo diretório, cujo nome é o mesmo nome do arquivo ao qual ele se refere, com a diferença da extensão.
+
+O arquivo de configuração declara:
+
+ - Título da página.
+
+ - Categorias e tópicos abordados (útil para que a página seja encontrada em pesquisas).
+
+# Tópico com páginas vs página com tópicos
+
+O arquivo TOML que configura página associa ela à um ou mais tópicos, mas a pesquisa tem que partir de um tópico para as páginas que o tangem. Por que não um arquivo TOML associando cada tópico a uma ou mais páginas?
+
+Um tópico engloba muito mais páginas que uma página possui de tópicos, por isso o tamanho de um arquivo que parte de tópico às páginas tende a ser mais volumoso que um arquivo que parte da página aos tópicos.
+
+Além disso, a necessidade de um arquivo de configuração de página continuaria, para configurar outras coisas.
+
+Para sanar as necessidades de busca e evitar verbosidade, o processo de indexação lê todos os arquivos de configuração de página, um por um, populando um banco de dados que associa tópico à páginas.
