@@ -70,7 +70,13 @@ Além de tudo isso, o perfil do contribuinte pode conter uma mensagem pessoal.
 
 # Plano de desenvolvimento
 
-TODO
+ - Exibir nomes de contribuintes nas páginas.
+
+ - Ler configuração TOML de página.
+
+ - Indexar tópicos às páginas 
+
+   - Criar modelo para gerenciar banco de dados com tópicos compilados.
 
 # Building
 
@@ -128,7 +134,7 @@ O arquivo de configuração declara:
 
 # Tópico com páginas vs página com tópicos
 
-O arquivo TOML que configura página associa ela à um ou mais tópicos, mas a pesquisa tem que partir de um tópico para as páginas que o tangem. Por que não um arquivo TOML associando cada tópico a uma ou mais páginas?
+O arquivo TOML que configura página associa ela a um ou mais tópicos, mas a pesquisa tem que partir de um tópico para as páginas que o tangem. Por que não um arquivo TOML associando cada tópico a uma ou mais páginas?
 
 Um tópico engloba muito mais páginas que uma página possui de tópicos, por isso o tamanho de um arquivo que parte de tópico às páginas tende a ser mais volumoso que um arquivo que parte da página aos tópicos.
 
