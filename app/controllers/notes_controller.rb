@@ -1,6 +1,8 @@
 require "kramdown"
 
 class NotesController < ApplicationController
+	allow_unauthenticated_access only: %i[ show ]
+
 	def index
 	end
 
