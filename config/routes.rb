@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
 	root "home#show"
 
-	get "/group", to: "group#show_main_staff"
+	get "/members", to: "members#index"
 
-	get "/group/:username", to: "group#show_person"
+	get "/members/search", to: "members#search"
+
+	get "/members/:username", to: "group#show"
 
 	get "/repository", to: "repository#show"
 
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
 
 	delete "/repository", to: "repository#remove"
 
-	get "/colab/", to: "notes#show"
+	get "/colab", to: "notes#show"
 
 	get "/colab/*", to: "notes#show"
 end

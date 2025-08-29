@@ -34,3 +34,5 @@
 /config/master.key
 
 /repository
+
+/commit-message.txt

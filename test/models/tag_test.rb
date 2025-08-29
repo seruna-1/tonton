@@ -1,6 +1,6 @@
 require "test_helper"
 
-class GroupControllerTest < ActionDispatch::IntegrationTest
+class TagTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -141,3 +141,11 @@ Um tópico engloba muito mais páginas que uma página possui de tópicos, por i
 Além disso, a necessidade de um arquivo de configuração de página continuaria, para configurar outras coisas.
 
 Para sanar as necessidades de busca e evitar verbosidade, o processo de indexação lê todos os arquivos de configuração de página, um por um, populando um banco de dados que associa tópico à páginas.
+
+# Registro de membros
+
+As informações na página de membro são obtidas de um banco de dados de membros, que é gerado a partir do histórico de commits do Git.
+
+O banco de dados de membros pode ser regenerado sob ordem de um administrador, mas segue um escopo contínuo. Quando novos commits são adicionados ao repositório remoto e o repositório local é atualizado, apenas os novos commits são lidos, levando à atualização do banco de dados.
+
+A atualização do banco de dados de membros é um evento atômico (não deve ocorrer de forma incompleta) ocasionado por uma atualização de repositório.
