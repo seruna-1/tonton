@@ -1,19 +1,4 @@
 <section>
-	<h1>TonTon</h1>
-
-	<nav>
-		<p><%= link_to "Grupo", members_path %></p>
-
-		<p><%= link_to "Navegar", colab_path %></p>
-
-		<% if authenticated? %>
-			<p><%= link_to "Gerenciamento de repositório", repository_path %></p>
-			<%= button_to "Sair", session_path, method: :delete %>
-		<% else %>
-			<p><%= link_to "Entrar", session_path + "/new", method: :get %></p>
-		<% end %>
-	</nav>
-
 	<%=
 		file = Rails.root + "README.md"
 		render inline: `pandoc "#{file}" -t html --section-divs`

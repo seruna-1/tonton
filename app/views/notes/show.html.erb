@@ -1,9 +1,15 @@
 <%= stylesheet_link_tag "note" %>
 
 <% if File.directory?(@real_path) %>
-	<% for entry in Dir.entries(@real_path)[2..] %>
-		<%= link_to entry, @relative_path+'/'+entry %>
-	<% end %>
+	<% content_for :title, "Navegador" %>
+
+	<nav>
+		<% for entry in Dir.entries(@real_path)[2..] %>
+			<p><%= link_to entry, @relative_path+'/'+entry %></p>
+		<% end %>
+	</nav>
 <% else %>
+	<% content_for :title, Pathname.new(@real_path).split.last %>
+
 	<%= render inline: `pandoc "#{@real_path}" -t html --section-divs`%>
 <% end %>
