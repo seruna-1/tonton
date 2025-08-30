@@ -62,6 +62,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "kramdown"
+gem "pandoc-ruby"
 
 gem "rugged"

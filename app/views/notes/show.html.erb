@@ -3,5 +3,5 @@
 		<%= link_to entry, @relative_path+'/'+entry %>
 	<% end %>
 <% else %>
-	<%= render inline: Kramdown::Document.new(File.read(@real_path)).to_html %>
+	<%= render inline: `pandoc "#{@real_path}" -t html --section-divs`%>
 <% end %>

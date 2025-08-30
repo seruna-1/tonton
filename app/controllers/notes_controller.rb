@@ -1,4 +1,4 @@
-require "kramdown"
+require "pandoc-ruby"
 
 class NotesController < ApplicationController
 	allow_unauthenticated_access only: %i[ show ]

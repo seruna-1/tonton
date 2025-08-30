@@ -15,6 +15,7 @@
 	</nav>
 
 	<%=
-		render inline: Kramdown::Document.new(File.read(Rails.root + "README.md")).to_html
+		file = Rails.root + "README.md"
+		render inline: `pandoc "#{file}" -t html --section-divs`
 	%>
 </section>

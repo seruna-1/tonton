@@ -1,4 +1,4 @@
-require "kramdown"
+require "pandoc-ruby"
 
 class HomeController < ApplicationController
 	allow_unauthenticated_access only: %i[ show ]
