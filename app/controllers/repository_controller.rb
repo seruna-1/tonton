@@ -21,30 +21,41 @@ class RepositoryController < ApplicationController
 
 		if not Dir.exist?(@@path) then Dir.mkdir(@@path) end
 
+		cloned = false
+
 		begin
 			repository = Rugged::Repository.new(@@path)
 		rescue Rugged::RepositoryError
-			puts "Cloning repository"
+			if not cloned
+				puts "Cloning repository"
 
-			Rugged::Repository.clone_at( @@url, @@path )
+				Rugged::Repository.clone_at( @@url, @@path )
 
-			repository = Rugged::Repository.new(@@path)
+				cloned = true
 
-			cloned = true
-		end
-
-		if not cloned
+				retry
+			else
+				raise Error("Tried to clone repository, but still could not create an object of it.")
+			end
+		else
 			puts "Pulling changes"
 
 			remote = repository.remotes["origin"]
 
+			puts "Checking connection to #{remote.url}."
+
+			connection_ok = remote.check_connection(:fetch)
+
+			if not connection_ok then raise Error("Connection not ok.") end
+
+			puts "Fetching from #{remote.url}."
+
 			remote.fetch
 
-			repository.merge_commits(
-				repository.head.target,
+			puts "Merging."
 
-				repository.branches["origin/main"].target
-			)
+			# Do this with rugged
+			puts `cd #{@@path} && git merge origin/main`
 		end
 
 		redirect_to repository_path
