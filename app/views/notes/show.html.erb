@@ -9,7 +9,21 @@
 		<% end %>
 	</nav>
 <% else %>
-	<% content_for :title, Pathname.new(@real_path).split.last %>
+	<% content_for :title, @toml["title"] %>
 
 	<%= render inline: `pandoc "#{@real_path}" -t html --section-divs`%>
+
+	<p>Autores:</p>
+	<ul>
+		<% for contributor in @contributors %>
+			<li><p><%= contributor %></p></li>
+		<% end %>
+	</ul>
+
+	<p>Tags:</p>
+	<ul>
+		<% for page_tag in @tags %>
+			<li><p><%= page_tag %></p></li>
+		<% end %>
+	</ul>
 <% end %>

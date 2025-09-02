@@ -65,3 +65,5 @@ end
 gem "pandoc-ruby"
 
 gem "rugged"
+
+gem "perfect_toml"

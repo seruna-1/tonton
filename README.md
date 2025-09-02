@@ -30,6 +30,17 @@ Agora, crie um arquivo Markdown contento o conteúdo que você quer propor como 
 
 	touch ruby/classes/inheritance.md
 
+Também adicione seu nome completo ao arquivo de configuração da página. Nesse caso, em [ruby/classes/inheritance.toml].
+
+	contributors = [ "My Self" ]
+
+Se a página já existia, adicione seu nome em uma linha própria.
+
+	contributors = [
+		"Someone Else",
+		"My Self"
+	]
+
 Após fazer as edições necessárias, faça um commit na branch de contribuição:
 
 	git add -A
@@ -78,7 +89,7 @@ Além de tudo isso, o perfil do contribuinte pode conter uma mensagem pessoal.
 
    - Criar modelo para gerenciar banco de dados com tópicos compilados.
 
-# Building
+# Rodando o servidor localmente
 
 Clone o repositório:
 
@@ -89,6 +100,12 @@ Clone o repositório:
 Instale ruby e bundler com o seu gerenciador de pacotes. Exemplo:
 
 	pacman -S ruby ruby-bundler
+
+Instale as seguintes dependências:
+
+ - libgit2
+
+ - pandoc
 
 Instale as gems:
 
@@ -130,22 +147,33 @@ O arquivo de configuração declara:
 
  - Título da página.
 
+ - Nomes completos dos contribuintes.
+
  - Categorias e tópicos abordados (útil para que a página seja encontrada em pesquisas).
 
-# Tópico com páginas vs página com tópicos
+Exemplo:
 
-O arquivo TOML que configura página associa ela a um ou mais tópicos, mas a pesquisa tem que partir de um tópico para as páginas que o tangem. Por que não um arquivo TOML associando cada tópico a uma ou mais páginas?
+	title = "Hello World"
 
-Um tópico engloba muito mais páginas que uma página possui de tópicos, por isso o tamanho de um arquivo que parte de tópico às páginas tende a ser mais volumoso que um arquivo que parte da página aos tópicos.
+	contributors = [ "Mateus Cezário Barreto" ]
 
-Além disso, a necessidade de um arquivo de configuração de página continuaria, para configurar outras coisas.
+	tags = [ "ruby", "programming", "introduction" ]
 
-Para sanar as necessidades de busca e evitar verbosidade, o processo de indexação lê todos os arquivos de configuração de página, um por um, populando um banco de dados que associa tópico à páginas.
+# Povoamento dos bancos de dados
 
-# Registro de membros
+O banco de dados do site possui as seguintes tabelas:
 
-As informações na página de membro são obtidas de um banco de dados de membros, que é gerado a partir do histórico de commits do Git.
+ - Tags
 
-O banco de dados de membros pode ser regenerado sob ordem de um administrador, mas segue um escopo contínuo. Quando novos commits são adicionados ao repositório remoto e o repositório local é atualizado, apenas os novos commits são lidos, levando à atualização do banco de dados.
+ - Users
 
-A atualização do banco de dados de membros é um evento atômico (não deve ocorrer de forma incompleta) ocasionado por uma atualização de repositório.
+ - Pages
+
+E as seguintes tabelas de junção:
+
+ - PageTagging (relaciona páginas e tags).
+
+ - Authorings (relaciona páginas e autores).
+
+As tabelas são povoadas a partir dos dados presentes nos arquivos TOML e servem para suportar a função de pesquisa. Quando uma página é visualizada, apenas os arquivos TOML são usados para obter informações.
+
