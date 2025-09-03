@@ -6,6 +6,14 @@ O site oferece ao público uma interface para navegar entre os materiais produzi
 
 O material é armazenado em um repositório Git. Qualquer pessoa pode propor uma contribuição ou iniciar um novo tópico. Caso a alteração seja aceita por um administrador, ela será incorporada ao repositório e estará disponível no site, junto com uma referência à pessoa que a produziu.
 
+# Financiamento
+
+Atualmente, esse é um projeto pessoal desenvolvido por mim em meu tempo livre.
+
+Caso você possa e queira contribuir financeiramente para ajudar a arcar com os custos de servidor e do nome de domínio, aqui está minha chave PIX (CPF): [02196960209].
+
+# Contribuição
+
 Para propor uma alteração, é necessário fazer um pull request. Para começar, crie seu próprio fork do [repositório de material](https://github.com/seruna-1/tonton-repo/tree/main#) e, tendo feito isso, clone-o localmente:
 
 	git clone "git@github.com:seruna-1/tonton-repo.git"
