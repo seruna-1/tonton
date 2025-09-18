@@ -1,21 +1,21 @@
 Rails.application.routes.draw do
-  resource :session
-  resources :passwords, param: :token
+	resource :session
+
+	resources :passwords, param: :token
+
 	get "up" => "rails/health#show", as: :rails_health_check
 
 	root "home#show"
 
-	get "/members", to: "members#index"
+	get "/participators", to: "participators#index"
 
-	get "/members/search", to: "members#search"
+	get "/participators/:name", to: "participators#show"
 
-	get "/members/:username", to: "group#show"
+	get "/management", to: "management#show"
 
-	get "/repository", to: "repository#show"
+	post "/repository", to: "management#pull_changes"
 
-	post "/repository", to: "repository#update"
-
-	delete "/repository", to: "repository#remove"
+	delete "/repository", to: "management#remove_repository"
 
 	get "/colab", to: "notes#show"
 

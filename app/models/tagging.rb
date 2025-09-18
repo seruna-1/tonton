@@ -1,4 +1,4 @@
-class PageTagging < ApplicationRecord
+class Tagging < ApplicationRecord
 	belongs_to :tag
 	belongs_to :page
 end

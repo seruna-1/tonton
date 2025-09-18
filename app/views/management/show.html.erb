@@ -1,6 +1,7 @@
 <section>
-	<h1>Repositório</h1>
+	<h1>Repositório de notas</h1>
 
+	<!-- Pull changes -->
 	<%= button_to "Atualizar", repository_path, method: :post %>
 
 	<%= button_to "Remover", repository_path, method: :delete, data: { turbo_confirm: "Are you sure?" } %>

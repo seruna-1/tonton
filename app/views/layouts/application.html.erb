@@ -25,12 +25,14 @@
 	<body>
 		<header>
 			<div><nav>
-				<p><%= link_to "Grupo", members_path %></p>
+				<p><%= link_to "Home", root_path %></p>
+
+				<p><%= link_to "Participantes", participators_path %></p>
 
 				<p><%= link_to "Navegar", colab_path %></p>
 
 				<% if authenticated? %>
-					<p><%= link_to "Gerenciamento de repositório", repository_path %></p>
+					<p><%= link_to "Gerenciamento", management_path %></p>
 					<%= button_to "Sair", session_path, method: :delete %>
 				<% else %>
 					<p><%= link_to "Entrar", session_path + "/new", method: :get %></p>

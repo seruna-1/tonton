@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1920"
+   height="1080"
+   viewBox="0 0 1920 1080"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="tables.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="0.55095403"
+     inkscape:cx="775.01928"
+     inkscape:cy="652.50453"
+     inkscape:window-width="1575"
+     inkscape:window-height="852"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:29.3333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:3.02362"
+       x="206.91386"
+       y="756.86896"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         x="206.91386"
+         y="756.86896">Participators</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:29.3333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:3.02362"
+       x="1406.6508"
+       y="622.55652"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         x="1406.6508"
+         y="622.55652">Collaborations</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:29.3333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:3.02362"
+       x="856.69586"
+       y="199.65369"
+       id="text3"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         x="856.69586"
+         y="199.65369">Tags</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:29.3333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:3.02362"
+       x="805.87488"
+       y="834.91541"
+       id="text4"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         x="805.87488"
+         y="834.91541">Participations</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:29.3333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:3.02362"
+       x="1121.6907"
+       y="453.75839"
+       id="text5"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         x="1121.6907"
+         y="453.75839">Taggings</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:29.3333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:3.02362"
+       x="493.68912"
+       y="446.4982"
+       id="text6"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         x="493.68912"
+         y="446.4982">Taggings</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:29.3333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:3.02362"
+       x="1403.0208"
+       y="735.08856"
+       id="text7"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         x="1403.0208"
+         y="735.08856">Challenges</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:29.3333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:3.02362"
+       x="1408.4659"
+       y="829.47034"
+       id="text8"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         x="1408.4659"
+         y="829.47034">Polls</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:29.3333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:3.02362"
+       x="1401.2056"
+       y="927.48212"
+       id="text9"><tspan
+         sodipodi:role="line"
+         id="tspan9"
+         x="1401.2056"
+         y="927.48212">Events</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3.02362;stroke-opacity:1"
+       d="M 863.95593,245.02951 426.53286,726.01338"
+       id="path9"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3.02362;stroke-opacity:1"
+       d="M 905.70169,246.84455 1352.1999,742.34868"
+       id="path10"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3.02362;stroke-opacity:1"
+       d="m 435.60803,767.75915 892.99647,3.63007"
+       id="path11"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>

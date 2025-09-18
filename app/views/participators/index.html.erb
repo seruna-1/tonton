@@ -1,0 +1,7 @@
+<% for participator in Participator.all %>
+	<% if participator.directory_path == "" %>
+		<p> <%= participator.name %> </p>
+	<% else %>
+		<p> <%= link_to participator.name, "/participators/#{participator.directory_name}" %> </p>
+	<% end %>
+<% end %>

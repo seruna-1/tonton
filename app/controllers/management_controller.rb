@@ -1,9 +1,9 @@
 require "rugged"
 
-class RepositoryController < ApplicationController
-	@@path = Rails.root.to_s + "/repository"
+class ManagementController < ApplicationController
+	@@repository_path = Rails.root.to_s + "/repository"
 
-	@@url = "https://github.com/seruna-1/tonton-repo.git"
+	@@repository_url = "https://github.com/seruna-1/tonton-repo.git"
 
 	def show
 	end
@@ -11,25 +11,25 @@ class RepositoryController < ApplicationController
 	def remove
 		puts "Removing repository."
 
-		`rm -rf #{@@path}`
+		`rm -rf #{@@repository_path}`
 
 		redirect_to repository_path
 	end
 
-	def update
+	def pull_changes
 		puts "Updating repository"
 
-		if not Dir.exist?(@@path) then Dir.mkdir(@@path) end
+		if not Dir.exist?(@@repository_path) then Dir.mkdir(@@repository_path) end
 
 		cloned = false
 
 		begin
-			repository = Rugged::Repository.new(@@path)
+			repository = Rugged::Repository.new(@@repository_path)
 		rescue Rugged::RepositoryError
 			if not cloned
 				puts "Cloning repository"
 
-				Rugged::Repository.clone_at( @@url, @@path )
+				Rugged::Repository.clone_at( @@repository_url, @@repository_path )
 
 				cloned = true
 
@@ -55,7 +55,7 @@ class RepositoryController < ApplicationController
 			puts "Merging."
 
 			# Do this with rugged
-			puts `cd #{@@path} && git merge origin/main`
+			puts `cd #{@@repository_path} && git merge origin/main`
 		end
 
 		redirect_to repository_path

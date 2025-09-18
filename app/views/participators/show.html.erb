@@ -1,0 +1,15 @@
+<section>
+	<h1> <%= @names.first %> </h1>
+
+	<p> [ <%= @names[1..] %> ] </p>
+</section>
+
+<section>
+	<h1> Links </h1>
+
+	<nav>
+		<% for link in @links %>
+			<p> <%= link_to link["name"], link["address"] %> </p>
+		<% end %>
+	</nav>
+</section>

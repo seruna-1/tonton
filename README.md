@@ -14,6 +14,8 @@ Caso você possa e queira contribuir financeiramente para ajudar a arcar com os 
 
 # Contribuição
 
+O site é desenvolvido em Ruby on Rails. Sinta-se livre para abrir um pull request ou issue endereçando uma contribuição ou um bug encontrado.
+
 Para propor uma alteração, é necessário fazer um pull request. Para começar, crie seu próprio fork do [repositório de material](https://github.com/seruna-1/tonton-repo/tree/main#) e, tendo feito isso, clone-o localmente:
 
 	git clone "git@github.com:seruna-1/tonton-repo.git"
