@@ -10,24 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_17_154546) do
-  create_table "authorings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+ActiveRecord::Schema[8.0].define(version: 2025_09_19_171105) do
+  create_table "collaboration_participations", id: false, force: :cascade do |t|
+    t.integer "participator_id", null: false
+    t.integer "collaboration_id", null: false
   end
 
-  create_table "page_taggings", force: :cascade do |t|
-    t.integer "page_id"
-    t.integer "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["page_id"], name: "index_page_taggings_on_page_id"
-    t.index ["tag_id"], name: "index_page_taggings_on_tag_id"
+  create_table "collaboration_taggings", id: false, force: :cascade do |t|
+    t.integer "collaboration_id", null: false
+    t.integer "tag_id", null: false
   end
 
-  create_table "pages", force: :cascade do |t|
+  create_table "collaborations", force: :cascade do |t|
     t.string "path"
-    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "participator_taggings", id: false, force: :cascade do |t|
+    t.integer "participator_id", null: false
+    t.integer "tag_id", null: false
+  end
+
+  create_table "participators", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "directory_path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,6 +50,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_17_154546) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
+    t.string "directory_path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
