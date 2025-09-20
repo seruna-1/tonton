@@ -20,4 +20,8 @@ Rails.application.routes.draw do
 	get "/colab", to: "notes#show"
 
 	get "/colab/*", to: "notes#show"
+
+	get "/project/", to: "projects#index"
+
+	get "/project/:name", to: "projects#show"
 end

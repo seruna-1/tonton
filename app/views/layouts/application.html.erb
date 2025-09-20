@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><%= content_for(:title) || "Tonton" %></title>
+		<title><%= content_for(:title) %></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
@@ -31,6 +31,10 @@
 
 				<p><%= link_to "Navegar", colab_path %></p>
 
+				<p><%= link_to "Projetos", project_path %></p>
+
+				<p><%= link_to "Mural", project_path + "/tonton" %></p>
+
 				<% if authenticated? %>
 					<p><%= link_to "Gerenciamento", management_path %></p>
 					<%= button_to "Sair", session_path, method: :delete %>
@@ -39,10 +43,10 @@
 				<% end %>
 			</nav></div>
 
-			<h1><%= content_for(:title) || "Tonton" %></h1>
+			<h1><%= content_for(:title) %></h1>
 		</header>
 
-		<%= yield %>
+		<main> <%= yield %> </main>
 	</body>
 
 	<%= javascript_include_tag "note", "data-turbo-track": "reload" %>

@@ -1,0 +1,9 @@
+<%= content_for :title, "Boletim" %>
+
+<% bulletin_files = Dir.glob("#{@bulletin_path}/*.md") %>
+
+<% for bulletin_file in bulletin_files %>
+	<div class="line-break">
+		<%= render inline: `pandoc "#{bulletin_file}" -t html --section-divs --shift-heading-level-by=1` %>
+	</div>
+<% end %>
