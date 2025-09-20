@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_19_171105) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_20_201630) do
   create_table "collaboration_participations", id: false, force: :cascade do |t|
     t.integer "participator_id", null: false
     t.integer "collaboration_id", null: false
@@ -60,8 +60,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_19_171105) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "participator_id"
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
+    t.index ["participator_id"], name: "index_users_on_participator_id"
   end
 
   add_foreign_key "sessions", "users"
+  add_foreign_key "users", "participators"
 end
