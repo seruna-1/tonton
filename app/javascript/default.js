@@ -194,43 +194,6 @@ class DialogSections extends Dialog
 	}
 }
 
-function enumerateTitles ()
-{
-	let position = [ 0 ];
-
-	let level;
-
-	let last_level;
-
-	for ( const title of titles )
-	{
-
-		if ( htmlHeader.contains( title ) ) { continue; }
-
-		level = parseInt( title.tagName[1] );
-
-		if ( level > last_level )
-		{
-			position.push( 0 );
-		}
-
-		else if ( level < last_level )
-		{
-			position.pop();
-
-			position[ position.length - 1 ]++;
-		}
-
-		position[ position.length - 1 ]++;
-
-		title.insertAdjacentHTML( "afterbegin", position.join( "." ) + " " );
-
-		last_level = level
-	}
-
-	return;
-}
-
 function generateSelfAnchors ()
 {
 	const selfAnchors = document.querySelectorAll( "a" );
@@ -277,15 +240,9 @@ function generateSelfAnchors ()
 	return;
 }
 
-const htmlHead = document.querySelector( "head" );
-
 const htmlBody = document.querySelector( "body" );
 
-const htmlMain = document.querySelector( "main" );
-
 const titles = document.querySelectorAll( "h1, h2, h3, h4, h5, h6" );
-
-enumerateTitles();
 
 const dialogMain = new DialogMain( "main" );
 
