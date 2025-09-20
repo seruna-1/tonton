@@ -3,7 +3,7 @@
 @font-face
 {
 	font-family: "Inconsolata";
-	src: url("inconsolata/Inconsolata-Regular.woff2") format("woff2");
+	src: url("Inconsolata-Regular.woff2") format("woff2");
 }
 
 :root, ::backdrop
