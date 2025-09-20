@@ -1,4 +1,5 @@
 require "perfect_toml"
+require "cgi"
 
 class ParticipatorsController < ApplicationController
 	allow_unauthenticated_access only: %i[ index show ]
@@ -7,14 +8,20 @@ class ParticipatorsController < ApplicationController
 	end
 
 	def show
-		begin
-			@toml = PerfectTOML.load_file( Rails.root.to_s + "/repository/contributors/#{params[:name]}/about.toml" )
-		rescue
-			raise ActionController::RoutingError.new("Not Found")
-		end
+		@participator = Participator.find_by name: CGI.unescapeURIComponent(params[:name])
 
-		@names = @toml["names"]
-		@links = @toml["links"]
-		@record = Participator.find_by(name: @names.first)
+		@names = []
+		@links = []
+
+		begin
+			if @participator.directory_path != ""
+				@toml = PerfectTOML.load_file( Rails.root + @participator.directory_path + "about.toml" )
+			end
+		rescue
+			@toml = nil
+		else
+			@names = @toml["names"]
+			@links = @toml["links"]
+		end
 	end
 end

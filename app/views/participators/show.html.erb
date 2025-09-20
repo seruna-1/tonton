@@ -1,15 +1,43 @@
-<section>
-	<h1> <%= @names.first %> </h1>
+<%= content_for :title, @participator.name %>
 
-	<p> [ <%= @names[1..] %> ] </p>
+<section>
+	<h2> Links </h2>
+
+	<% if @links.empty? %>
+		<p>Nenhum link.</p>
+	<% else %>
+		<nav>
+			<% for link in @links %>
+				<p> <%= link_to link["name"], link["address"] %> </p>
+			<% end %>
+		</nav>
+	<% end %>
 </section>
 
 <section>
-	<h1> Links </h1>
+	<h2> Colaborações </h2>
 
-	<nav>
-		<% for link in @links %>
-			<p> <%= link_to link["name"], link["address"] %> </p>
-		<% end %>
-	</nav>
+	<% if @participator.collaborations.empty? %>
+		<p>Nenhuma colaboração.</p>
+	<% else %>
+		<ul>
+			<% for collaboration in @participator.collaborations %>
+				<li> <p> <%= collaboration.name %> </p> </li>
+			<% end %>
+		</ul>
+	<% end %>
+</section>
+
+<section>
+	<h2> Tags </h2>
+
+	<% if @participator.tags.empty? %>
+		<p>Nenhuma participação.</p>
+	<% else %>
+		<ul>
+			<% for tag in @participator.tags %>
+				<li> <p> <%= tag.name %> </p> </li>
+			<% end %>
+		</ul>
+	<% end %>
 </section>
