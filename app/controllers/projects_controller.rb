@@ -1,6 +1,8 @@
 require "pandoc-ruby"
 
 class ProjectsController < ApplicationController
+	allow_unauthenticated_access only: %i[ show ]
+
 	def show
 		@root_directory_path = Rails.root + "repository/projects" + params[:name]
 
