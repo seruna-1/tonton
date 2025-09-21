@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 	get "/project/", to: "projects#index"
 
 	get "/project/:name", to: "projects#show"
+
+	post "/content-repository-upstream-listener", to: "content_repository_upstream_listener#listen"
 end
