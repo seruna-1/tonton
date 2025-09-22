@@ -58,6 +58,6 @@ class ManagementController < ApplicationController
 			puts `cd #{@@repository_path} && git merge origin/main`
 		end
 
-		redirect_to repository_path
+		redirect_to management_path
 	end
 end
