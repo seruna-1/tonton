@@ -1,29 +1,17 @@
 <%= stylesheet_link_tag "note" %>
 
-<% if File.directory?(@real_path) %>
-	<% content_for :title, "Navegador" %>
+<%= render inline: @content %>
 
-	<nav>
-		<% for entry in Dir.entries(@real_path)[2..] %>
-			<p><%= link_to entry, @relative_path+'/'+entry %></p>
-		<% end %>
-	</nav>
-<% else %>
-	<% content_for :title, @toml["title"] %>
+<p>Autores:</p>
+<ul>
+	<% for contributor in @contributors %>
+		<li><p><%= contributor %></p></li>
+	<% end %>
+</ul>
 
-	<%= render inline: `pandoc "#{@real_path}" -t html --section-divs`%>
-
-	<p>Autores:</p>
-	<ul>
-		<% for contributor in @contributors %>
-			<li><p><%= contributor %></p></li>
-		<% end %>
-	</ul>
-
-	<p>Tags:</p>
-	<ul>
-		<% for page_tag in @tags %>
-			<li><p><%= page_tag %></p></li>
-		<% end %>
-	</ul>
-<% end %>
+<p>Tags:</p>
+<ul>
+	<% for page_tag in @tags %>
+		<li><p><%= page_tag %></p></li>
+	<% end %>
+</ul>
