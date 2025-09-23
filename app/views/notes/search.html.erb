@@ -1,0 +1,7 @@
+<% content_for :title, "Resultado da pesquisa" %>
+
+<% for result in @search_results %>
+
+	<p> <%= link_to result.path, "/colab/#{result.path}" %> <p>
+
+<% end %>

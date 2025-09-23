@@ -67,3 +67,5 @@ gem "pandoc-ruby"
 gem "rugged"
 
 gem "perfect_toml"
+
+gem "asciidoctor"

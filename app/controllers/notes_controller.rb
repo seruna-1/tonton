@@ -8,23 +8,33 @@ class NotesController < ApplicationController
 	def index
 	end
 
+	def search
+		params.require(:term)
+
+		@search_results = Collaboration.where("path LIKE ?", "%#{params[:term]}%")
+	end
+
 	def show
-		@relative_path = request.path
+		@real_path = Rails.root + ( "repository" + CGI.unescape(request.path) )
 
-		@real_path = Rails.root + "/repository" + request.path
+		@relative_path = @real_path.relative_path_from @@repository_path
 
-		case @extension
-		when "md"
+		case @real_path.extname
+		when ".md"
 			@content = `pandoc "#{@real_path}" -t html --section-divs`
-		when "adoc"
+		when ".adoc"
 			@content = `asciidoctor -o - "#{@real_path}"`
 		else
 			raise ActionController::RoutingError.new("Collaboration not found at path #{@relative_path}. No extension error.")
 		end
 
 		begin
-			@toml = PerfectTOML.load_file( @real_path.sub_ext( ".toml" ) )
+			toml_path = @real_path.sub_ext( ".toml" )
+
+			@toml = PerfectTOML.load_file toml_path
 		rescue
+			puts "No Toml file at #{toml_path}"
+
 			@toml = nil
 		else
 			@tags = @toml["tags"]

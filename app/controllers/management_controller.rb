@@ -2,10 +2,6 @@ require "rugged"
 
 class ManagementController < ApplicationController
 
-	@@repository_path = Rails.root + "repository"
-
-	@@repository_url = "https://github.com/seruna-1/tonton-repo.git"
-
 	@@valid_collaboration_file_extensions = [ ".md", ".adoc" ]
 
 	@@collaborations_root = @@repository_path + "colab"

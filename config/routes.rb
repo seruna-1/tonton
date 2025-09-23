@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
 	delete "/repository", to: "management#remove_repository"
 
-	get "/colab", to: "notes#show"
+	get "/colab/index", to: "notes#index"
+
+	post "/colab/search", to: "notes#search"
 
 	get "/colab/*", to: "notes#show"
 
