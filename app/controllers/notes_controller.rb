@@ -3,7 +3,7 @@ require "pandoc-ruby"
 require "perfect_toml"
 
 class NotesController < ApplicationController
-	allow_unauthenticated_access only: %i[ index show ]
+	allow_unauthenticated_access only: %i[ index show search ]
 
 	def index
 	end
