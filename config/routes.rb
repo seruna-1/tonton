@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
 	get "/colab/index", to: "notes#index"
 
-	post "/colab/search", to: "notes#search"
+	post "/colab/index", to: "notes#index"
 
 	get "/colab/*", to: "notes#show"
 

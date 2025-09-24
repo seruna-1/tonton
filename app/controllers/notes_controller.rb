@@ -3,15 +3,18 @@ require "pandoc-ruby"
 require "perfect_toml"
 
 class NotesController < ApplicationController
-	allow_unauthenticated_access only: %i[ index show search ]
+	allow_unauthenticated_access only: %i[ index show ]
 
 	def index
-	end
+		@search_results = Array.new()
 
-	def search
-		params.require(:term)
+		if request.post?
+			params.require(:term)
 
-		@search_results = Collaboration.where("path LIKE ?", "%#{params[:term]}%")
+			@search_results = Collaboration.where("path LIKE ?", "%#{params[:term]}%")
+
+			render status: :ok
+		end
 	end
 
 	def show

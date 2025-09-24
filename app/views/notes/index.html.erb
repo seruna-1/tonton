@@ -1,6 +1,6 @@
 <% content_for :title, "Colaborações" %>
 
-<%= form_tag '/colab/search' do %>
+<%= form_tag '/colab/index', data: { turbo: false } do %>
 
 	<%= label_tag( :term, "Search for:" ) %>
 
@@ -9,3 +9,13 @@
 	<%= submit_tag("Search") %>
 
 <% end %>
+
+<section>
+	<h2>Resultados:</h2>
+
+	<nav>
+		<% for result in @search_results %>
+			<p> <%= link_to result.path, "/colab/#{result.path}" %> <p>
+		<% end %>
+	</nav>
+</section>
