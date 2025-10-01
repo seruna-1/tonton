@@ -24,28 +24,50 @@
 
 	<body>
 		<header>
-			<div><nav>
-				<p><%= link_to "Home", root_path %></p>
+			<div name="main-navigation">
+				<a href="/"> <img src="/icon.svg" style="width:16vw"> </a>
 
-				<p><%= link_to "Participantes", participators_path %></p>
+				<nav>
+					<p><%= link_to "Participantes", participators_path %></p>
 
-				<p><%= link_to "Colaborações", "/colab/index" %></p>
+					<p><%= link_to "Colaborações", "/colab/index" %></p>
 
-				<p><%= link_to "Projetos", project_path %></p>
+					<p><%= link_to "Projetos", project_path %></p>
 
-				<p><%= link_to "Mural", project_path + "/tonton" %></p>
+					<p><%= link_to "Mural", project_path + "/tonton" %></p>
 
-				<% if authenticated? %>
-					<p><%= link_to "Gerenciamento", management_path %></p>
-					<%= button_to "Sair", session_path, method: :delete %>
-				<% else %>
-					<p><%= link_to "Entrar", session_path + "/new", method: :get %></p>
-				<% end %>
-			</nav></div>
+					<% if authenticated? %>
+						<%= button_to "Sair", session_path, method: :delete %>
+					<% else %>
+						<p><%= link_to "Entrar", session_path + "/new", method: :get %></p>
+					<% end %>
+				</nav>
+			</div>
 
-			<h1><%= content_for(:title) %></h1>
+			<div> <h1><%= content_for(:title) %></h1> </div>
 		</header>
 
-		<main> <%= yield %> </main>
+		<main>
+			<%= yield %>
+		</main>
+
+ 		<dialog name="main"><div><nav>
+			<p><%= link_to "Home", root_path %></p>
+
+			<p><%= link_to "Participantes", participators_path %></p>
+
+			<p><%= link_to "Colaborações", "/colab/index" %></p>
+
+			<p><%= link_to "Projetos", project_path %></p>
+
+			<p><%= link_to "Mural", project_path + "/tonton" %></p>
+
+			<% if authenticated? %>
+				<p><%= link_to "Gerenciamento", management_path %></p>
+				<%= button_to "Sair", session_path, method: :delete %>
+			<% else %>
+				<p><%= link_to "Entrar", session_path + "/new", method: :get %></p>
+			<% end %>
+			</div></nav></dialog>
 	</body>
 </html>

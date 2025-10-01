@@ -65,6 +65,12 @@ header
 
 main, header { padding: 2rem calc( var(--empty-space-width) / 2 + 0.6rem ); }
 
+div[name="main-navigation"]
+{
+	display: flex;
+	justify-content: space-around;
+}
+
 dialog[open]
 {
 	max-height: 90vh;
@@ -217,7 +223,6 @@ h1, h2, h3, h4, h5, h6, p, div, nav, li, ul, math, img, video { margin-bottom: 1
 button, input[type="submit"], input[type="reset"], input[type="button"]
 {
 	font-size: 1rem;
-	margin: 1rem;
 	padding: 0.5rem;
 	border-width: 0px;
 	background-color: var(--color-clickable-normal);
@@ -227,6 +232,7 @@ button, input[type="submit"], input[type="reset"], input[type="button"]
 
 #buttonShowDialogMain
 {
+	margin: 0.8rem;
 	position: fixed;
 	bottom: 0.8rem;
 	width: 2.6rem;

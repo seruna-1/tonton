@@ -2,6 +2,8 @@ require "pandoc-ruby"
 
 require "perfect_toml"
 
+require "asciidoctor"
+
 class NotesController < ApplicationController
 	allow_unauthenticated_access only: %i[ index show ]
 
@@ -52,7 +54,9 @@ class NotesController < ApplicationController
 		when ".md"
 			@content = `pandoc "#{@real_path}" -t html --section-divs`
 		when ".adoc"
-			@content = `asciidoctor -o - "#{@real_path}"`
+			asciidoc = File.read @real_path, mode: 'r:utf-8'
+
+			@content = Asciidoctor.convert asciidoc, safe: :safe
 		else
 			raise ActionController::RoutingError.new("Collaboration not found at path #{@relative_path}. No extension error.")
 		end
