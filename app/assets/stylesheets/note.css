@@ -208,7 +208,7 @@ h1, h2, h3, h4, h5, h6
 
 section { margin-top: 3rem; break-after: page; }
 
-h1, h2, h3, h4, h5, h6, p, div, li, ul, math, img, video { margin-bottom: 1.5rem; }
+h1, h2, h3, h4, h5, h6, p, div, nav, li, ul, math, img, video { margin-bottom: 1.5rem; }
 
 :last-child { margin-bottom: 0; }
 
