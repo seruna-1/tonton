@@ -4,7 +4,7 @@ require "perfect_toml"
 
 require "asciidoctor"
 
-class NotesController < ApplicationController
+class CollaborationsController < ApplicationController
 	allow_unauthenticated_access only: %i[ index show ]
 
 	def index

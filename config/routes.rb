@@ -17,11 +17,11 @@ Rails.application.routes.draw do
 
 	delete "/repository", to: "management#remove_repository"
 
-	get "/colab/index", to: "notes#index"
+	get "/colab/index", to: "collaborations#index"
 
-	post "/colab/index", to: "notes#index"
+	post "/colab/index", to: "collaborations#index"
 
-	get "/colab/*", to: "notes#show"
+	get "/colab/*", to: "collaborations#show"
 
 	get "/project/", to: "projects#index"
 
