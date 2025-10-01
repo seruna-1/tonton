@@ -1,11 +1,6 @@
 require "rugged"
 
 class ManagementController < ApplicationController
-
-	@@valid_collaboration_file_extensions = [ ".md", ".adoc" ]
-
-	@@collaborations_root = @@repository_path + "colab"
-
 	def show
 	end
 
