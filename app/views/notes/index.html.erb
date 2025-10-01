@@ -1,21 +1,43 @@
 <% content_for :title, "Colaborações" %>
 
-<%= form_tag '/colab/index', data: { turbo: false } do %>
+<div class="line-break">
+	<%= form_tag '/colab/index', data: { turbo: false } do %>
 
-	<%= label_tag( :term, "Search for:" ) %>
+		<%= label_tag( :term, "Search for:" ) %>
 
-	<%= text_field_tag(:term) %>
+		<%= text_field_tag(:term) %>
 
-	<%= submit_tag("Search") %>
+		<%= submit_tag("Search") %>
 
-<% end %>
+	<% end %>
+</div>
 
-<section>
-	<h2>Resultados:</h2>
+<div>
+	<button> Previous </button>
 
-	<nav>
-		<% for result in @search_results %>
-			<p> <%= link_to result.path, "/colab/#{result.path}" %> <p>
-		<% end %>
-	</nav>
-</section>
+	<button> Página: <%= @search_page %> </button>
+
+	<button> Next </button>
+</div>
+
+<nav>
+	<% for result in @search_results %>
+		<div>
+			<p> <%= link_to result['title'], "/colab/#{result['path']}" %> <p>
+
+			<p> <button> Autores: <%= "#{result['contributors']}" %> </button> </p>
+
+			<p> <button> Tags:
+				<%= begin "#{result['tags']}" rescue "Nenhuma tag" end %>
+			</button> </p>
+		</div>
+	<% end %>
+</nav>
+
+<div>
+	<button> Previous </button>
+
+	<button> Página: <%= @search_page %> </button>
+
+	<button> Next </button>
+</div>

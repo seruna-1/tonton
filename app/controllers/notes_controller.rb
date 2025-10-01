@@ -8,10 +8,36 @@ class NotesController < ApplicationController
 	def index
 		@search_results = Array.new()
 
-		if request.post?
+		if params[:page]
+			@search_page = params[:page].to_i
+		else
+			@search_page = 0
+		end
+
+		search_results_per_page = 30
+
+		if request.get?
+			offset = @search_page * search_results_per_page
+
+			for collaboration in Collaboration.offset(offset).take(search_results_per_page)
+				entry = collaboration.process_toml
+
+				entry['path'] = collaboration.path
+
+				@search_results << entry
+			end
+		elsif request.post?
 			params.require(:term)
 
-			@search_results = Collaboration.where("path LIKE ?", "%#{params[:term]}%")
+			offset = 0
+
+			for collaboration in Collaboration.offset(offset).limit(search_results_per_page).where("path LIKE ?", "%#{params[:term]}%")
+				entry = collaboration.process_toml
+
+				entry['path'] = collaboration.path
+
+				@search_results << entry
+			end
 
 			render status: :ok
 		end
@@ -20,7 +46,7 @@ class NotesController < ApplicationController
 	def show
 		@real_path = Rails.root + ( "repository" + CGI.unescape(request.path) )
 
-		@relative_path = @real_path.relative_path_from @@repository_path
+		@relative_path = @real_path.relative_path_from ApplicationController.repository_path
 
 		case @real_path.extname
 		when ".md"
