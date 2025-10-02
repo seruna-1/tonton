@@ -10,12 +10,6 @@ module Authentication
 		def allow_unauthenticated_access(**options)
 			skip_before_action :require_authentication, **options
 		end
-
-		def allow_tagged_access(tag, **options)
-			if Current.user.tags.include?(tag)
-				skip_before_action :require_authentication, **options
-			end
-		end
 	end
 
 	private
@@ -25,6 +19,14 @@ module Authentication
 
 		def require_authentication
 			resume_session || request_authentication
+		end
+
+		def require_tag required_tag
+			for tag in Current.user.participator.tags
+				if tag.name == required_tag then return true end
+			end
+
+			render plain: "Access Denied: You do not have permission to view this resource.", status: :forbidden
 		end
 
 		def resume_session

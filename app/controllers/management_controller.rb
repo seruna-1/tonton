@@ -1,6 +1,10 @@
 require "rugged"
 
 class ManagementController < ApplicationController
+	before_action do
+		require_tag 'developer'
+	end
+
 	def show
 	end
 
